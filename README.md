@@ -1,14 +1,14 @@
-# 🐍 Pynotas
+#  Pynotas - "programar de qualquer lugar."
 
 Um editor/terminal Python no navegador, com visual inspirado em terminal, realce de sintaxe e execução de código via Pyodide (WebAssembly).
 
-## 🚀 Acesse o app publicado
+##  Acesse o app
 
-> **Demo online:** **https://pynotas-app.netlify.app/**
+> **https://pynotas-app.netlify.app/**
 
 ---
 
-## ✨ Funcionalidades principais
+## Funcionalidades principais
 
 - Editor de código Python com destaque de sintaxe
 - Numeração de linhas e indentação automática
@@ -18,7 +18,7 @@ Um editor/terminal Python no navegador, com visual inspirado em terminal, realce
 - Persistência local do código e entrada (`localStorage`)
 - Suporte PWA (manifest + service worker)
 
-## 🧱 Stack e tecnologias
+## Stack e tecnologias
 
 - **HTML5**
 - **CSS3**
@@ -47,7 +47,7 @@ pynotas/
 └── README.md
 ```
 
-## ▶️ Execução local
+## Execução local
 
 Como é um app estático, basta servir os arquivos com um servidor HTTP local.
 
@@ -63,7 +63,7 @@ Depois, abra: `http://localhost:8000`
 
 Abra o projeto e execute com a extensão **Live Server**.
 
-## 🛠️ Como alterar/contribuir
+## Como alterar/contribuir
 
 1. Faça um fork do repositório
 2. Crie uma branch para sua alteração
@@ -71,13 +71,6 @@ Abra o projeto e execute com a extensão **Live Server**.
 4. Teste localmente (execução de código, `stdin`, output e persistência)
 5. Abra um Pull Request descrevendo o que mudou
 
-## 🌐 Deploy / publicação
-
-O projeto está publicado em:
-
-- **Netlify**: https://pynotas-app.netlify.app/
-
-Para novos deploys, mantenha os caminhos relativos corretos de `index.html`, `manifest.webmanifest`, `sw.js` e `assets/`.
 
 ## 📌 Status e licença
 
