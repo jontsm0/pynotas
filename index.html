@@ -10,52 +10,10 @@
 <meta name="apple-mobile-web-app-title" content="Pynotas">
 <title>Pynotas</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-180.png">
-<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<link rel="icon" href="assets/icons/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#000;--fg:#f8f8f2;--cm:#6272a4;--cl:#44475a;--ln:#262626;--pu:#bd93f9;--gr:#50fa7b;--pk:#ff79c6;--cy:#8be9fd;--or:#ffb86c;--ye:#f1fa8c;--rd:#ff5555;--fs:14px;--lh:22px;--sl:3;
---mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;margin:0;background:var(--bg)}
-body{color:var(--fg);font:400 13px/1.4 var(--mono);overflow:hidden}
-::selection{background:var(--cl)}
-button,textarea{font:inherit;color:inherit}
-:focus-visible{outline:1px solid var(--pu);outline-offset:2px}
-#app{display:grid;grid-template-rows:auto 1fr;height:100dvh;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--ln)}
-.pr{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
-.pr .p{color:var(--pu)}.pr .d{color:var(--gr);margin:0 8px 0 6px}
-.cur{display:inline-block;width:8px;height:15px;background:var(--fg);vertical-align:-3px;margin-left:6px;animation:bl 1.1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.bs{display:flex;gap:8px;flex:none}
-.bt{background:none;border:1px solid #3a3a3a;color:#ddd;padding:7px 16px;border-radius:3px;cursor:pointer;font-weight:500}
-.bt:hover{border-color:#888}
-.bt.run{background:#fff;border-color:#fff;color:#000;font-weight:600}
-.bt.run:hover{background:#ddd}
-.bt kbd{font:inherit;opacity:.45;margin-left:8px}
-main{display:grid;grid-template-columns:1fr 1fr;min-height:0}
-.pn{display:flex;flex-direction:column;min-width:0;min-height:0}
-.pn+.pn{border-left:1px solid var(--ln)}
-.lb{padding:10px 16px 6px;color:var(--cm);font-size:11px;letter-spacing:.06em}
-.ed{flex:1;display:flex;min-height:0}
-#g{margin:0;width:42px;flex:none;text-align:right;padding:6px 10px 6px 0;color:var(--cl);font:var(--fs)/var(--lh) var(--mono);overflow:hidden;user-select:none}
-.cd{position:relative;flex:1;overflow:hidden}
-#hl,#ta{margin:0;padding:6px 16px 6px 4px;font:var(--fs)/var(--lh) var(--mono);white-space:pre;tab-size:4;letter-spacing:0;font-variant-ligatures:none}
-#hl{position:absolute;top:0;left:0;pointer-events:none;color:var(--fg);will-change:transform}
-#ta{position:absolute;inset:0;width:100%;height:100%;border:0;outline:0;resize:none;background:transparent;color:transparent;-webkit-text-fill-color:transparent;caret-color:#fff;overflow:auto;scrollbar-width:thin;scrollbar-color:#333 transparent}
-.k{color:var(--pk)}.s{color:var(--ye)}.n{color:var(--pu)}.b{color:var(--cy)}.f{color:var(--gr)}.t{color:var(--cy);font-style:italic}.o{color:var(--or);font-style:italic}.c{color:var(--cm)}
-.si{border-top:1px solid var(--ln)}
-#in{display:block;width:100%;height:calc(var(--sl)*var(--lh) + 12px);border:0;outline:0;resize:none;background:none;color:var(--or);padding:0 16px 12px;font:var(--fs)/var(--lh) var(--mono);white-space:pre;overflow:auto}
-#in::placeholder{color:var(--cl)}
-#out{margin:0;flex:1;padding:6px 16px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:var(--fs)/var(--lh) var(--mono)}
-#out:empty::before{content:"# a saída aparece aqui";color:var(--cm)}
-#out .e{color:var(--rd)}
-#st{padding:9px 16px;border-top:1px solid var(--ln);color:var(--cm);font-size:11px;min-height:34px}
-#st.ok{color:var(--gr)}#st.er{color:var(--rd)}
-@media (max-width:700px){:root{--fs:16px;--lh:24px;--sl:2}main{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.pn+.pn{border-left:0;border-top:1px solid var(--ln)}.bt kbd{display:none}.pr .cmd{display:none}#g{width:34px}}
-@media (prefers-reduced-motion:reduce){.cur{animation:none}}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <div id="app">
@@ -76,57 +34,6 @@ main{display:grid;grid-template-columns:1fr 1fr;min-height:0}
     </section>
   </main>
 </div>
-<script>
-var K='pyterm-v1',$=function(s){return document.querySelector(s)};
-var S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
-S=S||{c:'# aperte run (ou Ctrl+Enter)\nnome = input("Seu nome? ")\nfor i in range(3):\n    print(f"Olá, {nome}! ({i + 1})")\n',i:'Ana'};
-var ta=$('#ta'),hlEl=$('#hl'),gt=$('#g'),inp=$('#in'),out=$('#out'),stEl=$('#st'),rn=$('#rn');
-ta.value=S.c;inp.value=S.i||'';
-var KW='and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield match case'.split(' ');
-var BI='print input len range int float str bool list dict set tuple sum min max abs sorted enumerate zip map filter open type isinstance round reversed any all format repr id iter next super object'.split(' ');
-var RE=/(#.*)|("""[\s\S]*?"""|'''[\s\S]*?'''|[rbfRBF]{0,2}"(?:\\.|[^"\\\n])*"?|[rbfRBF]{0,2}'(?:\\.|[^'\\\n])*'?)|\b(\d+(?:\.\d+)?)\b|\b([A-Za-z_]\w*)\b/g;
-function sp(c,t){return '<span class="'+c+'">'+t+'</span>'}
-function hl(src){var prev='',s=src.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  return s.replace(RE,function(m,c,st,n,id,off,full){
-    if(c)return sp('c',c);if(st)return sp('s',st);if(n)return sp('n',n);
-    var p=prev;prev=id;
-    if(KW.indexOf(id)>-1)return sp('k',id);
-    if(id==='True'||id==='False'||id==='None')return sp('n',id);
-    if(p==='def')return sp('f',id);if(p==='class')return sp('t',id);
-    if(id==='self')return sp('o',id);
-    if(BI.indexOf(id)>-1)return sp('b',id);
-    if(full.charAt(off+id.length)==='(')return sp('f',id);
-    return id})}
-function sync(){hlEl.style.transform='translate('+(-ta.scrollLeft)+'px,'+(-ta.scrollTop)+'px)';gt.scrollTop=ta.scrollTop}
-function paint(){var v=ta.value,n=v.split('\n').length,g='';for(var i=1;i<=n;i++)g+=i+'\n';
-  hlEl.innerHTML=hl(v)+'\n';gt.textContent=g;sync()}
-var tm;function persist(){clearTimeout(tm);tm=setTimeout(function(){try{localStorage.setItem(K,JSON.stringify({c:ta.value,i:inp.value}))}catch(e){}},300)}
-ta.addEventListener('input',function(){paint();persist()});inp.addEventListener('input',persist);
-ta.addEventListener('scroll',sync);
-ta.addEventListener('keydown',function(e){var s=ta.selectionStart,v=ta.value;
-  if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){e.preventDefault();toggle();return}
-  if(e.key==='Tab'){e.preventDefault();ta.setRangeText('    ',s,ta.selectionEnd,'end');ta.dispatchEvent(new Event('input'))}
-  else if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();var ln=v.slice(v.lastIndexOf('\n',s-1)+1,s),ind=ln.match(/^\s*/)[0];if(/:\s*$/.test(ln))ind+='    ';
-    ta.setRangeText('\n'+ind,s,ta.selectionEnd,'end');ta.dispatchEvent(new Event('input'))}});
-var w,running=false,ready=false,t0;
-function st(t,c){stEl.textContent=t;stEl.className=c||''}
-function put(t,err){var s=document.createElement('span');if(err)s.className='e';s.textContent=t+'\n';out.appendChild(s);out.scrollTop=out.scrollHeight}
-function ui(){rn.firstChild.nodeValue=running?'stop':'run'}
-function boot(){ready=false;st('carregando python (na primeira vez leva alguns segundos)...');w=new Worker('worker.js');
-  w.onmessage=function(ev){var d=ev.data;
-    if(d.ready){ready=true;st(running?'executando...':'python pronto')}
-    if(d.fail){st('não foi possível carregar o python. verifique a conexão.','er');running=false;ui()}
-    if(d.o!=null)put(d.o);if(d.e!=null)put(d.e,1);
-    if(d.done){running=false;ui();st('concluído em '+((performance.now()-t0)/1000).toFixed(2).replace('.',',')+' s','ok')}};
-  w.onerror=function(){st('erro ao iniciar o python','er');running=false;ui()}}
-function run(){out.textContent='';running=true;ui();t0=performance.now();if(ready)st('executando...');
-  w.postMessage({code:ta.value,stdin:inp.value?inp.value.split('\n'):[]})}
-function stop(){w.terminate();running=false;ui();put('[execução interrompida]',1);boot()}
-function toggle(){if(running)stop();else run()}
-rn.onclick=toggle;
-$('#cl').onclick=function(){out.textContent='';if(!running)st(ready?'python pronto':stEl.textContent)};
-paint();boot();
-if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});
-</script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

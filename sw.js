@@ -1,5 +1,5 @@
-const V = 'pynotas-v2';
-const SHELL = ['./', 'index.html', 'worker.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
+const V = 'pynotas-v3';
+const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'assets/css/styles.css', 'assets/js/app.js', 'assets/js/worker.js', 'assets/icons/icon-192.png', 'assets/icons/icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });
