@@ -15,6 +15,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:12px;pa
 .bs{display:flex;gap:8px;flex:none}
 .bt{background:none;border:1px solid #3a3a3a;color:#ddd;padding:7px 16px;border-radius:3px;cursor:pointer;font-weight:500}
 .bt:hover{border-color:#888}
+.bt.lk{text-decoration:none;display:inline-flex;align-items:center}
 .bt.run{background:#fff;border-color:#fff;color:#000;font-weight:600}
 .bt.run:hover{background:#ddd}
 .bt kbd{font:inherit;opacity:.45;margin-left:8px}
