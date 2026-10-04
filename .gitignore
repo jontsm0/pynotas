@@ -1,0 +1,13 @@
+# Arquivos locais e temporários
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.netlify/
